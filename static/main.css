@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444;
+  background-color: 2A64D0;
+}
+
+
+h2 {
+  font-size: 1em;
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.row1 {
+
+  border-style: dotted;
+  border-width: 2px;
+  background-color: #66ffcc;
+}
+.row2 {
+
+  border-style: dotted;
+  border-width: 2px;
+
+}
+.row_one {
+}
+
+table {
+  border-collapse: collapse;
+  padding: 5px;
+ }
+table , tr{
+  height:35px;
+ }
+table, th, td {
+  border:1px solid black;
+
+}
+.row {
+	  display:flex;
+	}
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 10000px; /* Should be removed. Only for demonstration */
+}
+.left {
+  width: 20%;
+
+
+}
+
+.right {
+  width: 80%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+body            { font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+a, h1, h2       { color: #377ba8; }
+h1, h2          { margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+}
+
+.output2 {
+    background-color: #add8e6;
+    color: white;
+    width:70%;
+}
+
+.output2 th {
+    background-color: #23C80A;
+    color: white;
+}
+.output3 {
+    background-color: #add8e6;
+    color: white;
+    width:70%;
+}
+.output3 th {
+    background-color: #23C80A;
+    color: white;
+}
+tr:nth-child(odd)		{ background-color:#5F9EA0; }
+tr:nth-child(even)	{ background-color:#008B8B; }
+
+tr:hover            { background-color: #C80ABC;}
+
+.another tr:nth-child(odd)		{ background-color:#F0FFFF; }
+.another tr:nth-child(even)	{ background-color:#F0FFFF; }
+
+.another tr:hover            { background-color: #3CB371;}
+.another table {
+ width:50%;
+}
