@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SNS Myanmar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .body-panel{
+             background-color: #ccffff;
+             font-size:20px;
+             font-family: Times New Roman;
+             font-color: #005CB9;
+
+            }
+
+            .left-guest{
+             border: dotted 1px black;
+             min-height: 300px;
+             background-color: #56BEB0;
+            }
+            .right-guest{
+            border: dotted 1px black;
+            min-height: 300px;
+            background-color:#1ae0f0;
+            }
+            .model{
+            border: dotted 1px black;
+             min-height: 50px;
+            background-color:#8cd8de;
+            }
+        </style>
+
+    </head>
+    <body id="page-top" class="body-panel">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="{{ url_for('home')}}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('background') }}">Background</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('descriptive')}}">Data Summary & Descriptive</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('slr') }}">Simple Linear Regression</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('sda')}}">Multiple Linear Regression</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+           <br>
+           <br>
+        <div class="container">
+            <form action="{{ url_for('sda') }}" method="POST">
+                     <div class="row">
+                          <div class="col-sm-5 left-guest">
+                              <div class="panel panel-danger">
+                                    <h2>Dependent Variables</h2>
+                                      <div class="radio">
+                                          <label>
+                                            <input type="radio" name="dv"  value="OEP">
+                                            Online Expressive Political Participation
+                                          </label>
+                                      </div>
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="dv" value="OFEP">
+                                            Offline Expressive Political Participation
+                                          </label>
+                                        </div>
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="dv" value="political_efficacy">
+                                            Political Efficacy
+                                          </label>
+                                        </div>
+                                  </div>
+                          </div>
+                         <div class="col-sm-7 right-guest">
+                             <div class="panel panel-info">
+                               <h2>Independent Variables</h2>
+                                        <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="checkbox"  name="idv" value="political_efficacy">Political Efficacy
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label" >
+                                            <input type="checkbox" name="idv" value="informational_use">Informational Use
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="checkbox" name="idv" value="SIU">Social Interactional Use(SIU)
+                                          </label>
+                                        </div>
+                                       <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="checkbox" name="idv" value="entertainment_use">Entertainment Purpose
+                                          </label>
+                                        </div>
+                                      <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" name="idv" value="three_usage">Three Usage
+                                      </label>
+                                      </div>
+                                      <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="checkbox" name="idv" value="gender">Gender
+                                          </label>
+                                      </div>
+                                      <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" name="idv" value="age">Age
+                                      </label>
+                                      </div>
+                                      <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" name="idv" value="education">Education
+                                      </label>
+                                      </div>
+                                       <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" name="idv" value="income">Income
+                                      </label>
+                                      </div>
+                                      <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" name="idv" value="location">Location
+                                      </label>
+                                       </div>
+                                 </div>
+                         </div>
+                     </div>
+
+                     <div class="row model">
+                         <div class="container">
+                            <div class="container p-3 my-4 bg-primary text-white">
+                                <h3>Multiple Linear Regression</h3>
+                                <p style="font-size:16px">ဒီမော်ဒယ်ကို အသုံးပြုရန်အတွက် မိမိအသုံးပြုချင်သော dependent variable (၁) ခု နှင့် independent variables များကို ရွေးချယ်ပေးရန်လိုအပ်ပါသည်။
+                                   Dependent Variable တွင် Political Efficacy ကို ရွေးပါက Independent Variables တွင် Political Efficacy ရွေးရန် မလိုအပ်ပါ။ Independent Variables ရွေးချယ်ရာတွင် three_usage
+                                   ကို ‌ရွေးချယ်ပါက informational use, entertainment purporse နှင့် SIU ကို မရွေးသင့်ပါ။</p>
+                            </div>
+                         </div>
+                        <center> <input class="btn btn-success " type="submit" value="တွက်ချက်ရန်"> </center>
+                    </div>
+
+            </form>
+     </div>
+        <script src="js/scripts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

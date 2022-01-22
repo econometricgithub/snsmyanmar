@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SNS Myanmar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+         * {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topnav{
+line-hight:150px;
+}
+
+.white-text-container {
+  padding: 10px;
+  height: 630px; /* Should be removed. Only for demonstration */
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  hight:20%;
+  width:100%;
+}
+.h2{
+padding-top:10px;
+.content > p {
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 12px;
+ color: #039;
+ background-color: #FCEBB6;
+}
+mya {
+  border-radius: 50%;
+}
+.topnav .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+</style>
+        </style>
+    </head>
+    <body id="page-top">
+            <div class="topnav" >
+                <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+                        <div class="container px-4">
+                            <a class="navbar-brand" href="">Home</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('background') }}">Background</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('descriptive')}}">Data Summary & Descriptive</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('slr') }}">Simple Linear Regression</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url_for('sda') }}">Multiple Linear Regression</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                </nav>
+            </div>
+            <br>
+            <br>
+
+            <div class="white-text-container background-image-container" style="background-image: url('static/sns_4.jpg'); background-size: 100% 100%;">
+                <div class="opacity"></div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                <br>
+
+                        <img src="static/33.jpg" alt="" width="300" height="300" class="mya" style="border-radius: 50%;">
+                        <div class="col-md-7">
+                             <br>
+                        <br>
+                        <br>
+                             <br>
+                        <br>
+                        <br>
+                            <br>
+                            <br>
+                            <div class="content" style="position: absolute;bottom: 0;background: rgb(0, 0, 0);background: rgba(0, 0, 0, 0.5);color: #f1f1f1;width: 100%;padding: 10px;"><h2 style="color:#fcec00;font-size: 30px;">
+                                Analysing the Econometric Models for the Impact of Social Networking Sites Usage on Expressive Political Participation in Myanmar </h2></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+              <footer class="py-3 bg-primary">
+                        <div class="container px-3"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+              </footer>
+            </div>
+                    <!-- Bootstrap core JS-->
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+                    <!-- Core theme JS-->
+                    <script src="js/scripts.js"></script>
+                        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

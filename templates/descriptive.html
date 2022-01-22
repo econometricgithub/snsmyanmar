@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SNS Myanmar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<style>
+    body{
+
+     font-size:18px;
+     font-family: Times New Roman;
+     font-color: #005CB9;
+}
+
+</style>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="{{ url_for('home')}}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                         <li class="nav-item"><a class="nav-link" href="{{ url_for('background') }}">Background</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('descriptive')}}">Data Summary & Descriptive </a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('slr')}}">Simple Linear Regression</a></li>
+                         <li class="nav-item"><a class="nav-link" href="{{ url_for('sda') }}">Multiple Linear Regression</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <br>
+     <br>
+  <div class="row2" >
+        <div class="column left" style="background-color:#48D1CC;">
+
+        </div>
+        <div class="column right" style="background-color:#B0E0E6;">
+
+            <br>
+            <div class="row_three">
+
+            <div class="row_one">
+                <center>
+                    <h1>Dependent Variables Data Summary</h1>
+                      {% for table in table1 %}
+                        <h2>{{table1[loop.index]}}</h2>
+                        {{ table|safe }}
+                      {% endfor %}
+                </center>
+            </div>
+            <br>
+            <div class ="row_two">
+                <center>
+                    <h1>Three Usage Data Summary</h1>
+                      {% for table in table2 %}
+                        <h2>{{table2[loop.index]}}</h2>
+                        {{ table|safe }}
+                      {% endfor %}
+                </center>
+            </div>
+            <div class ="row_four">
+                    <center>
+                    <h1>Three Usage Data Summary</h1>
+                      {% for table in table3 %}
+                        <h2>{{table3[loop.index]}}</h2>
+                        {{ table|safe }}
+                      {% endfor %}
+                </center>
+            </div>
+
+        </div>
+        <div class ="row_four">
+             <center>
+                <h2>Gender</h2>
+                <img src="{{url_for('static', filename='gender.png')}}" align="middle"  />
+             </center>
+         </div>
+            <br>
+        <div class ="row_four">
+             <center>
+                <h2>Location</h2>
+                <img src="{{url_for('static', filename='location_1.png')}}" align="middle" width="730px"  />
+             </center>
+         </div>
+        <div class ="row_four">
+             <center>
+                <h2>Education</h2>
+                <img src="{{url_for('static', filename='education.png')}}" align="middle" width="730px"  />
+             </center>
+         </div>
+        <div class ="row_four">
+             <center>
+                <h2>Age</h2>
+                <img src="{{url_for('static', filename='age.png')}}" align="middle" width="730px"  />
+             </center>
+         </div>
+        </div>
+       </div>
+    </body>
+</html>

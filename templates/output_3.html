@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SNS Myanmar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<style>
+    body{
+
+     font-size:18px;
+     font-family: Times New Roman;
+     font-color: #005CB9;
+}
+.con{
+  width: 90%;
+  height: 1%;
+  border: 3px dotted red;
+  box-sizing: border-box;
+  background:#F0FFFF;
+}
+.blockquote{
+  padding: 10px 10px 10px 10px;
+}
+
+</style>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="{{ url_for('home')}}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                         <li class="nav-item"><a class="nav-link" href="{{ url_for('background') }}">Background</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('descriptive')}}">Data Summary & Descriptive</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('slr') }}">Simple Linear Regression</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('sda')}}">Multiple Linear Regression</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <br>
+    <br>
+  <div class="row2" >
+        <div class="column left" style="background-color:#48D1CC; ">
+        <ul style="color:dark;">
+            <li>R-square= Coefficient of Determination</li>
+            <li>Prob (F-statistic)= Probability value as a whole</li>
+            <li>AIC= Akaike Information Criteria</li>
+            <li>BIC= Bayesian Information Criteria </li>
+             <li>const= constant(alpha)</li>
+            <li>coeff= coefficient(beta)</li>
+            <li>std err= standard error</li>
+             <li>t= t statistic</li>
+             <li>P>|t|= Probabilty value</li>
+             <li>conf_lower= confidence interval lower</li>
+            <li>conf_higher= confidence interval higher</li>
+            <br>
+            <li>SIU= Social Interaction Use</li>
+            <li>three_usage= informational_use+ SIU + entertainment_purpose</li>
+
+        </ul>
+        </div>
+        <div class="column right" style="background-color:#B0E0E6;">
+
+
+            <div class="row_three">
+                <center>
+                <h2>Descriptive Statistics of Variables</h2>
+                <img src="{{url_for('static', filename='pairplot.png')}}" align="middle" width="90%" />
+                </center>
+            <br>
+                <br>
+                <center>
+                    <center><h1>Regression Outputs</h1></center>
+                   <table width="50%" style="color:white;font-family:Times New Roman" >
+                    {% for key, value in table.items() %}
+                        <tr>
+                        <td > {{key}}</td>
+                         <td> {{value}}</td>
+                         </tr>
+                    {% endfor %}
+                    </table>
+                </center>
+            </div>
+            <br>
+            <div class ="another">
+            <center>
+                <h4> Summary Objects</h4>
+                {% include 'summary.html'  %}
+            </center>
+            </div>
+            <br>
+            <p></p>
+            <div class="row_one">
+                <center>
+                   <table width="50%" style="color:white;font-family:Times New Roman">
+                    {% for key, value in tables1.items() %}
+                        <tr >
+                        <td> {{key}}</td>
+                         <td> {{value}}</td>
+                         </tr>
+                    {% endfor %}
+                    </table>
+                </center>
+            </div>
+            <br>
+            <div class ="row_two">
+            <center>
+                <h4> Regression output summary</h4>
+
+                {% for table in tables2 %}
+                    {{ table|safe }}
+                {% endfor %}
+            </center>
+            </div>
+             <center>
+            <div class="con">
+                    {% if 'political_efficacy' in idv %}
+                        {% if 'OEP' in dv %}
+                        <p class="blockquote text-justify text-primary " style="font-size;10">
+                            &nbsp;&nbsp;&nbsp;&nbsp;အထက်ပါဇယားတွင် ဖော်ပြထားသော resultsများအရ လူတစ်ယောက်သည် နိုင်ငံရေးဖြစ်စဉ်များကို နားလည်နိုင်သည် သို့မဟုတ် နိုင်ငံရေးဖြစ်စဉ်များတွင် ပါဝင်ဆောင်
+                            ရွက်ပါက အကျိုးရှိမည်ဟု ခံစားရမှု့ ၁ ရာခိုင်နှုန်းပိုလေ ၎င်း၏  Online Expressive Political Participation သည်  {{ coef_2*100 }} ရာခိုင်နှုန်း ပိုမြင့် လာပါမည်။ ဒီ results သည် P-value= {{ pvalue_2 }}
+                            နှင့် standard error= {{ std_2 }} ဖြစ်သောကြောင့်  strongly significant ဖြစ် ပါသည်။ <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;ဒီမော်ဒယ်မှာ အခြား variables များ ၏ သက်ရောက်မှု့သည် Statistically Significant မဖြစ်သောကြောင့် ထည့်သွင်း စဉ်း
+                            စားရန် မလိုအပ်ပေ။ ဒါပေမယ့် Age သည် statistically significant ဖြစ်နေပေမယ့် Negative Relationship ဖြစ်နေပါသည်။ ဆိုလိုသည်မှာ အသက်ကြီးသော လူများသည်
+                            လူငယ်များလောက် Online Expressive Political Participation တွင် ပါဝင်နိုင်ချေ  ပိုနည်းသည်ဟု ကောက်ချက်ချနိုင်ပါသည်။ Constant Value သည်လည်း {{ coef_1 }} ဖြစ်ပီး Statistically significant ဖြစ်နေပါသည်။ ဆိုလိုတာကတော့ Survey မှာ ပါဝင်ဖြေပေးသော လူတိုင်း၏
+                            Online Expressive Political Participation ပမာဏသည် ပျမ်းမျှအားဖြင့် {{ coef_1*100 }} ရာခိုင်နှုန်းရှိနေသည်ဟု ဆိုလိုပါသည်။
+                        </p>
+                        {% else %}
+                            <p class="blockquote text-justify text-primary " style="font-size;10">
+                            &nbsp;&nbsp;&nbsp;&nbsp;အထက်ပါဇယားတွင် ဖော်ပြထားသော resultsများအရ လူတစ်ယောက်သည် နိုင်ငံရေးဖြစ်စဉ်များကို နားလည်နိုင်သည် သို့မဟုတ် နိုင်ငံရေးဖြစ်စဉ်များတွင် ပါဝင်ဆောင်
+                            ရွက်ပါက အကျိုးရှိမည်ဟု ခံစားရမှု့ ၁ ရာခိုင်နှုန်းပိုလေ ၎င်း၏  Offline Expressive Political Participation သည်  {{ coef_2*100 }} ရာခိုင်နှုန်း ပိုမြင့် လာပါမည်။ ဒီ results သည် P-value= {{ pvalue_2 }}
+                            နှင့် standard error= {{ std_2 }} ဖြစ်သောကြောင့်  strongly significant ဖြစ် ပါသည်။ <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;ဒီမော်ဒယ်မှာ အခြား variables များ ၏ သက်ရောက်မှု့သည် Statistically Significant မဖြစ်သောကြောင့် ထည့်သွင်း စဉ်း
+                            စားရန် မလိုအပ်ပေ။ ဒါပေမယ့် Age, Location နှင့် Constant တို့ကို ရှင်းပြရန်လိုအပ်ပါသည်။ Age နှင့် Location သည် statistically significant ဖြစ်နေပေမယ့် Negative Relationship ဖြစ်နေပါသည်။ ဆိုလိုသည်မှာ အသက်ကြီးသော လူများသည်
+                            လူငယ်များလောက် Offline Expressive Political Participation တွင် ပါဝင်နိုင်ချေ ပိုနည်းသလို ကျေးလက်တွင်နေသော သူများသည် မြို့ပြတွင်နေသော သူများလောက် နိုင်ငံရေးလှုပ်ရှားမှု့များတွင် ချိန်ဆက်ပါဝင်မှု့ ပိုနည်းသည်ဟု
+                                ကောက်ချက်ချနိုင်ပါသည်။ Constant Value သည်လည်း {{ coef_1 }} ဖြစ်ပီး Statistically significant ဖြစ်နေပါသည်။ ဆိုလိုတာကတော့ Survey မှာ ပါဝင်ဖြေပေးသော လူတိုင်း၏
+                            Offline Expressive Political Participation ပမာဏသည် ပျမ်းမျှအားဖြင့် {{ coef_1*100 }} ရာခိုင်နှုန်းရှိနေသည်ဟု ဆိုလိုပါသည်။
+                             </p>
+                        {% endif %}
+
+                {% endif %}
+
+            </div>
+            </center>
+            <br>
+            <div class ="row_four">
+                <center>
+                    <h2>Coefficient Plot</h2>
+                    <img src="{{url_for('static', filename='coefficient_plt.png')}}" align="middle" width="70%"  />
+                <br>
+                    <h2>Partial Regression Plots </h2>
+                    <img src="{{url_for('static', filename='partial_plot.png')}}" align="middle" width="70%"  />
+                </center>
+            </div>
+            <div class ="row_four">
+            <center>
+                <h4> Regression Metric</h4>
+
+                {% for table in tables3 %}
+                    {{ table|safe }}
+                {% endfor %}
+
+            </center>
+            </div>
+            <div class ="row_four">
+            <center>
+                <h4> Stragers</h4>
+
+                {% for table in tables4 %}
+                    {{ table|safe }}
+                {% endfor %}
+
+            </center>
+            </div>
+        </div>
+
+  </div>
+</body>
+</html>

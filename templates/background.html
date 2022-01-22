@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<title>SNS Myanmar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>
+body {font-family: "Roboto", sans-serif; background-color:#ccffff;}
+.w3-bar-block .w3-bar-item {
+  padding: 16px;
+  font-weight: bold;
+}
+</style>
+<body>
+<div class="container-fluid">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="{{ url_for('home')}}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('background') }}">Background</a></li>
+                         <li class="nav-item"><a class="nav-link" href="{{ url_for('descriptive')}}">Data Summary & Descriptive</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('slr') }}">Simple Linear Regression</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('sda') }}">Multiple Linear Regression</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<br>
+    <br>
+<div class="w3-container" style="padding:32px">
+    <center> <h1> Analysing the Econometric Models for the Impact of Social Networking Sites Usage on Expressive Political Participation in Myanmar</h1></center>
+
+<h2>Abstract</h2>
+
+<p>Social Networking Sites play an important role in people's daily lives.</p>
+
+<ul class="w3-leftbar w3-theme-border" style="list-style:none">
+ <li>In Myanmar, with the development of the internet, the use of social networking sites has increased to about half of the population.</li>
+ <li>The impact of social networking sites extends across a wide range of areas.</li>
+ <li>It can be found especially in politics. </li>
+ <li>Our research examines social networking sites usage and its political implications.</li>
+ <li>The main objective of our search is to investigate the relationship between social media usage and online and offline expressive political participation.</li>
+</ul>
+    <center>
+    <h3>Social Networking Sites Usage in Myanmar</h3>
+    <img src="{{url_for('static', filename='fb.png')}}" align="middle" width="800px" height="300px"/>
+    </center>
+<br>
+
+<hr>
+<h2>Social Network Usage and Political Participation</h2>
+<p>
+    <div class="bd-example" align="middle">
+                <h3>Relationship between SNS usage and Political Participation</h3>
+                <img src="{{url_for('static', filename='picture.png')}}" align="middle" width="500px" height="300px"/>
+    </div>
+</p>
+
+<hr>
+<h2>Econometric</h2>
+<div class="w3-container w3-sand w3-leftbar">
+<p><i>Use of statistical methods and mathematical models using quantitative data to develop theories or test existing hypotheses.</i><br>
+    Relies on techniques such as regression models and null hypothesis testing.Econometrics can also be usedto try to forecast
+    future economic or financial trends. </i><br>   It can determine the effect of one variable on the other variables.There are many types
+    of econometric models such as Linear Regression model, Probit and Logit model, Ordered Probit and Logit model, etc.
+
+</p>
+</div>
+
+<hr>
+<h2>Multiple Linear Regression</h2>
+
+<p>Regression analysis is a statistical process for estimating the relationships among variables.</p>
+<p>Describes how the dependent variables is related to the independent variables(s) and the error therm.</p>
+<p><b>Multiple Linear regression:</b></p>
+    <center> <h4>  𝒚=𝜷_𝟎+ 𝜷_(𝟏 ) 𝒙𝟏+𝜷_𝟐 𝒙𝟐  +…+ 𝜷_𝒌 𝒙𝒌 + 𝝁</h4></center>
+<hr>
+<h2>Flask</h2>
+
+<p>Flask is a web application framework written in Python. It was developed by Armin Ronacher, who led a team of international Python<br>
+   enthusiasts called Poocco. Flask is based on the Werkzeg WSGI toolkit and the Jinja2 template engine.Both are Pocco projects.</p>
+<p>Flask is often referred to as a microframework. It is designed to keep the core of the application simple and scalable.</p>
+    <center>
+    <h3>Flask Architecture</h3>
+    <img src="{{url_for('static', filename='flask2.png')}}" align="middle" width="500px" height="300px"/>
+        </center>
+
+    <br>
+    <center>
+    <h2>Dependent Variables Definition</h2>
+    <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Variables</th>
+              <th scope="col">Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Political Efficacy</td>
+              <td>Feelings of self-competence to understand and participate effectively in political processes.<br>
+              နိုင်ငံရေးဖြစ်စဉ်များတွင် ပါဝင်ဆောင်ရွက်ပါက အကျိုးရှိမည်ဟု မိမိကိုယ်ကို ယုံကြည်ခြင်း၊ နိုင်ငံရေးဖြစ်စဉ်များကို ကောင်းစွာ နားလည်သဘောပေါက်နိုင်စွမ်းရှိသည်ဟု ယုံကြည်ခြင်း။</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Onffline Expressive Political Participation</td>
+              <td>Involves activities that occur in practical world such as attending political events, voting or working for a candidate or party.<br>
+                  ရွေးကောက်ပွဲ အမတ်လောင်းတစ်ယောက် (သို့) ပါတီတစ်ခုအတွက် အလုပ်လုပ်ပေးခြင်း၊ မဲပေးခြင်း သို့ နိုင်ငံရေးလှုပ်ရှားမှု့ တစ်ခုတွင် သွားရောက် တက်ရောက်ခြင်း စသော လှုပ်ရှားမှု့များ ပါဝင်သည်။
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Online Expressive Political Participation</td>
+              <td>Political activities such as gathering political knowledge and information on social media, sending message on Facebook to a political candidate and making comment on candidate’s website.,BR>
+              နိုင်ငံရေး ပါတီတစ်ခု သို့ ရွေးကောက်ပွဲ ကိုယ်စားလှယ်လောင်းတစ်ယောက်၏ Websites တွင် မှတ်ချက်များရေးသားခြင်း၊ Facebook မှ message များပို့ခြင်းများ, ဆိုရှယ်မီဒီယာ ပေါ်တွင် နိုင်ငံရေး သတင်းများ ဗဟုသုတများ ရှာဖွေ စုဆောင်းခြင်းများ ပါဝင်သည်။</td>
+            </tr>
+          </tbody>
+    </table>
+    </center>
+    <br>
+    <center>
+    <h2>Independent Variables</h2>
+    <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Variables</th>
+              <th scope="col">Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Informational Use</td>
+              <td>You primarily use Facebook to access political and social information.<br>
+              Facebook ကို နိုင်ငံရေး နှင့် ဆက်ဆိုင်သော သတင်းများ၊ လူမှု့ရေးနှင့်ဆိုင်သော သတင်းများ သိရှိစေရန် အဓိကထား အသုံးပြု ပါသည်။</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Entertainment Puspose</td>
+              <td>Entertainment _use_1: You primarily use Facebook as a form of entertainment. <br>
+                  Entertainment _use_2: You primarily use Facebook to share your favorite photos, videos, content freely.<br>
+                  We added all of these together and divided them by two because there are two types of questions for this variable.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Social Interactioanl Usage</td>
+                <td> SIU_1: You primarily use Facebook to stay in touch with family, friends, relatives .<br>
+                SIU_2: You primarily use Facebook to meet and make new friends, connections. <br>
+                SIU_3: You get to know more about politics and social issues through posts shared by your Facebook friends.<br>
+                We added all of these together and divided them by three because there are three types of questions for this variable. </td>
+            </tr>
+           <tr>
+              <th scope="row">4</th>
+              <td>Three Usage</td>
+               <td>Three_usage  = information use + social interaction use + entertainment use </td>
+            </tr>
+          </tbody>
+    </table>
+    </center>
+</div>
+<footer class="w3-container w3-theme" style="padding:32px">
+  <p>Thank You</p>
+</footer>
+</div>
+</div>
+</div>
+</body>
+</html>

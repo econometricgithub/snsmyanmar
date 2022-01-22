@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SNS Myanmar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<style>
+    body{
+
+     font-size:18px;
+     font-family: Times New Roman;
+     font-color: #005CB9;
+}
+
+</style>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="{{ url_for('home')}}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                         <li class="nav-item"><a class="nav-link" href="{{ url_for('background') }}">Background</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('descriptive')}}">Data Summary & Descriptive </a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('slr')}}">Simple Linear Regression</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('sda')}}">Multiple Linear Regression</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <br>
+     <br>
+  <div class="row2" >
+        <div class="column left" style="background-color:#48D1CC;">
+        <ul style="color:dark;">
+            <li>R-square= Coefficient of Determination</li>
+            <li>Prob (F-statistic)= Probability value as a whole</li>
+            <li>AIC= Akaike Information Criteria</li>
+            <li>BIC= Bayesian Information Criteria </li>
+             <li>const= constant(alpha)</li>
+            <li>coeff= coefficient(beta)</li>
+            <li>std err= standard error</li>
+             <li>t= t statistic</li>
+             <li>P>|t|= Probabilty value</li>
+             <li>conf_lower= confidence interval lower</li>
+            <li>conf_higher= confidence interval higher</li>
+            <br>
+            <li>SIU= Social Interaction Use</li>
+            <li>three_usage= informational_use+ SIU + entertainment_purpose</li>
+
+        </ul>
+        </div>
+        <div class="column right" style="background-color:#B0E0E6;">
+
+
+             <center><h1>Relationship Between Two Variables</h1></center>
+            <center><img src="{{url_for('static', filename='mode1_1.png')}}" align="middle; width=100px;hight:100px"/></center>
+            <center><h1>Regression Outputs</h1></center>
+
+            <br>
+            <br>
+            <div class="row_three">
+                <center>
+                   <table width="50%" style="color:white;font-family:Times New Roman" >
+                    {% for key, value in tables.items() %}
+                        <tr>
+                        <td > {{key}}</td>
+                         <td> {{value}}</td>
+                         </tr>
+                    {% endfor %}
+                    </table>
+                </center>
+            </div>
+            <p></p>
+            <div class="row_one">
+                <center>
+                   <table width="50%" style="color:white;font-family:Times New Roman">
+                    {% for key, value in tables1.items() %}
+                        <tr >
+                        <td> {{key}}</td>
+                         <td> {{value}}</td>
+                         </tr>
+                    {% endfor %}
+                    </table>
+                </center>
+            </div>
+            <br>
+            <div class ="row_two">
+            <center>
+                <h4> Regression output summary</h4>
+
+                {% for table in tables2 %}
+                    {{ table|safe }}
+                {% endfor %}
+            </center>
+            </div>
+            <div class ="row_four">
+            <center>
+                <h4> Regression Metric</h4>
+
+                {% for table in tables3 %}
+                    {{ table|safe }}
+                {% endfor %}
+
+            </center>
+            </div>
+
+            <center><h1>Residuals Plot For {{ independent }}</h1></center>
+            <center><img src="{{url_for('static', filename='mode1_2.png')}}" align="middle; width=100px;hight:100px"/></center>
+            <br>
+            <center><h1>QQPlots </h1></center>
+            <center><img src="{{url_for('static', filename='mode1_3.png')}}" align="middle; width=100px;hight:100px"/></center>
+        </div>
+  </div>
+</body>
+</html>
